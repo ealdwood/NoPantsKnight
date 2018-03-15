@@ -1,14 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PlayerAudio : MonoBehaviour {
+public class PlayerAudio : MonoBehaviour
+{
 
     public AudioClip jumpSound;
     public AudioClip splashSound;
     public AudioClip spikeSplatSound;
     public AudioClip killedByEnemySound;
     public AudioClip failSound;
+    public AudioClip horrorWhispersSound;
+
+    public bool isInCave;
 
     private AudioSource source;
     public float volume = 1.0f;
@@ -17,6 +19,11 @@ public class PlayerAudio : MonoBehaviour {
     void Awake()
     {
         source = GetComponent<AudioSource>();
+    }
+
+    private void Start()
+    {
+        isInCave = false;
     }
 
     void PlayJumpSound()
@@ -37,6 +44,16 @@ public class PlayerAudio : MonoBehaviour {
     void PlayKilledByEnemySound()
     {
         source.PlayOneShot(killedByEnemySound, volume);
+    }
+
+    void PlayHorrorWhispersSound()
+    {
+        source.PlayOneShot(horrorWhispersSound, volume);
+    }
+
+    void StopHorrorWhispersSound()
+    {
+        source.Stop();
     }
 
     void PlayFailTone()
