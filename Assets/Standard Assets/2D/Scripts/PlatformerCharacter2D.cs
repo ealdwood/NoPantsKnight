@@ -54,7 +54,7 @@ namespace UnityStandardAssets._2D
         {
             if (m_Anim.GetBool("isDying") || m_Anim.GetBool("isDead"))
             {
-                m_Rigidbody2D.velocity = new Vector2(0, 0);
+                m_Rigidbody2D.velocity = new Vector2(0, m_Rigidbody2D.velocity.y);
                 return;
             }
 

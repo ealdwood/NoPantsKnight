@@ -51,7 +51,7 @@ public class PlayerHealth : MonoBehaviour
             hasDiedByEnemy)
         {
             if (!timerReached)
-                timer += Time.deltaTime;
+                timer += Time.deltaTime;            
 
             if (!m_Anim.GetBool("isDead"))
             {
