@@ -51,6 +51,11 @@ namespace UnityStandardAssets._2D
 
         public void Move(float move, bool crouch, bool jump)
         {
+            if (m_Anim.GetBool("isDead"))
+            {
+                return;
+            }
+
             // If crouching, check to see if the character can stand up
             if (!crouch && m_Anim.GetBool("Crouch"))
             {
