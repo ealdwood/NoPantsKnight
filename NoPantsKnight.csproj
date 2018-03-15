@@ -291,6 +291,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\EnemyMove.cs" />
     <Compile Include="Assets\Scripts\Game\Parallaxing.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAudio.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerHealth.cs" />
