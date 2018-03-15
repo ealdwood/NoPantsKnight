@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAudio : MonoBehaviour {
 
     public AudioClip jumpSound;
+    public AudioClip splashSound;
 
     private AudioSource source;
     public float volume = 1.0f;
@@ -18,5 +19,10 @@ public class PlayerAudio : MonoBehaviour {
     void PlayJumpSound()
     {
         source.PlayOneShot(jumpSound, volume);
+    }
+
+    void PlaySplashSound()
+    {
+        source.PlayOneShot(splashSound, volume);
     }
 }
