@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     public int health;
     public bool hasDiedInWater;
     public bool hasDiedOnSpikes;
+    public bool hasDiedByEnemy;
 
     private Animator m_Anim;
 
@@ -21,7 +22,8 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         hasDiedInWater = false;
-        hasDiedOnSpikes = false;        
+        hasDiedOnSpikes = false;
+        hasDiedByEnemy = false;
     }
 
     private void Awake()
@@ -100,6 +102,17 @@ public class PlayerHealth : MonoBehaviour
             if (!playedDeathSound)
             {
                 BroadcastMessage("PlaySpikeSplatSound");
+                playedDeathSound = true;
+            }
+        }
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+            hasDiedInWater = true;
+
+            if (!playedDeathSound)
+            {
+                BroadcastMessage("PlayKilledByEnemySound");
                 playedDeathSound = true;
             }
         }
