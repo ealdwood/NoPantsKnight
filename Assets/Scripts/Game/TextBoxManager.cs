@@ -21,7 +21,9 @@ public class TextBoxManager : MonoBehaviour {
             "Wow! MLC Ninja Warrior is brutal!!",
             "Damn,... wish I had of gotten the accidental death insurance when I had the chance.",
             "Do they have a cover option for this?!?",
-            "Nav wears womens underwear!!!!"
+            "I'm glad I went with MLC for Life Insurance",
+            "Does MLC cover attacks from blue slime?", 
+            "Underwriting didn't ask if I fight undead skeletons!"
         };
     }
 
