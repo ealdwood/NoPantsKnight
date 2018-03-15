@@ -1745,6 +1745,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSound: {fileID: 8300000, guid: 39219ba2ddac38d409cf1d0ea55a6a17, type: 3}
   splashSound: {fileID: 8300000, guid: b3b373be69c5c284ab1c5a69e3864ad4, type: 3}
+  spikeSplatSound: {fileID: 8300000, guid: 7a1957f68fcd0864d958e3caadfbe60d, type: 3}
+  failSound: {fileID: 8300000, guid: 3f7761e69ccabb9409dcf612f9913c51, type: 3}
   volume: 1
 --- !u!82 &824249119
 AudioSource:
