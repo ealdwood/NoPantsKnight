@@ -41,7 +41,9 @@ public class PlayerHealth : MonoBehaviour
 
     private void CheckForDeath()
     {
-        if (hasDiedInWater ||  hasDiedOnSpikes)
+        if (hasDiedInWater ||  
+            hasDiedOnSpikes ||
+            hasDiedByEnemy)
         {
             if (!timerReached)
                 timer += Time.deltaTime;
@@ -71,13 +73,6 @@ public class PlayerHealth : MonoBehaviour
         if (gameObject.transform.position.y < -30)
         {
             hasDiedInWater = true;
-
-            if (!playedDeathSound)
-            {
-                BroadcastMessage("PlaySplashSound");
-                playedDeathSound = true;
-            }
-
         }
     }
 
@@ -108,7 +103,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (collision.gameObject.tag == "Enemy")
         {
-            hasDiedInWater = true;
+            hasDiedByEnemy = true;
 
             if (!playedDeathSound)
             {
