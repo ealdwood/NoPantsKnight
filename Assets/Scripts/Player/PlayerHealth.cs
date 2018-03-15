@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets._2D;
 
-public class PlayerHealth : MonoBehaviour {
+public class PlayerHealth : MonoBehaviour
+{
     public int health;
     public bool hasDiedInWater;
     public bool hasDiedOnSpikes;
@@ -13,38 +15,23 @@ public class PlayerHealth : MonoBehaviour {
     bool playedFailSound = false;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         hasDiedInWater = false;
         hasDiedOnSpikes = false;
 
     }
-	
-	// Update is called once per frame
-	void Update () {
-        if(gameObject.transform.position.y < -10)
-        {
-            hasDiedInWater = true;
 
-            if (!playedDeathSound)
-            {
-                BroadcastMessage("PlaySplashSound");
-                playedDeathSound = true;
-            }
-                      
-        }
+    // Update is called once per frame
+    void Update()
+    {
+        CheckForFallenPlayer();
+        CheckForDeath();
+    }
 
-        else if (gameObject.transform.position.y < -10)
-        {
-            hasDiedOnSpikes = true;
-
-            if (!playedDeathSound)
-            {
-                BroadcastMessage("PlaySpikesSplatSound");
-                playedDeathSound = true;
-            }
-        }
-
-        if (hasDiedInWater || hasDiedOnSpikes)
+    private void CheckForDeath()
+    {
+        if (hasDiedInWater ||  hasDiedOnSpikes)
         {
             if (!timerReached)
                 timer += Time.deltaTime;
@@ -63,9 +50,50 @@ public class PlayerHealth : MonoBehaviour {
                 timerReached = true;
                 playedDeathSound = false;
                 playedFailSound = false;
-            }                      
+            }
         }
-	}
+    }
+
+    private void CheckForFallenPlayer()
+    {
+        if (gameObject.transform.position.y < -30)
+        {
+            hasDiedInWater = true;
+
+            if (!playedDeathSound)
+            {
+                BroadcastMessage("PlaySplashSound");
+                playedDeathSound = true;
+            }
+
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Water")
+        {
+            hasDiedInWater = true;
+
+            if (!playedDeathSound)
+            {
+                BroadcastMessage("PlaySplashSound");
+                playedDeathSound = true;
+
+            }
+        }
+
+        if (collision.gameObject.tag == "Spikes")
+        {
+            hasDiedInWater = true;
+
+            if (!playedDeathSound)
+            {
+                BroadcastMessage("PlaySpikeSplatSound");
+                playedDeathSound = true;
+            }
+        }
+    }
 
     IEnumerator Die()
     {
