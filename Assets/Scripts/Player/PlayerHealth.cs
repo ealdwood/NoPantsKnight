@@ -48,10 +48,19 @@ public class PlayerHealth : MonoBehaviour
             if (!timerReached)
                 timer += Time.deltaTime;
 
-            m_Anim.SetBool("isDead", true);             
+            if (!m_Anim.GetBool("isDead"))
+            {
+                m_Anim.SetBool("isDying", true);
+            }
+
+            if (!timerReached && timer > 0.05)
+            {
+                m_Anim.SetBool("isDead", true);
+                m_Anim.SetBool("isDying", false);
+            }
 
             if (!timerReached && timer > 1 && !playedFailSound)
-            {
+            {                
                 BroadcastMessage("PlayFailTone");
                 playedFailSound = true;
             }
@@ -115,7 +124,8 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator Die()
     {
-        m_Anim.SetBool("isDead", false);        
+        m_Anim.SetBool("isDying", false);
+        m_Anim.SetBool("isDead", false);
 
         SceneManager.LoadScene("Forest");
 

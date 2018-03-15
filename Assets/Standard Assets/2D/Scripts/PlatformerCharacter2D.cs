@@ -52,7 +52,7 @@ namespace UnityStandardAssets._2D
 
         public void Move(float move, bool crouch, bool jump)
         {
-            if (m_Anim.GetBool("isDead"))
+            if (m_Anim.GetBool("isDying") || m_Anim.GetBool("isDead"))
             {
                 m_Rigidbody2D.velocity = new Vector2(0, 0);
                 return;
