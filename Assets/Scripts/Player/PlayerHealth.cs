@@ -16,7 +16,8 @@ public class PlayerHealth : MonoBehaviour
     bool timerReached = false;
     bool playedDeathSound = false;
     bool playedFailSound = false;
-    PlatformerCharacter2D m_Character;
+
+    bool isInCave;
 
     // Use this for initialization
     void Start()
@@ -24,12 +25,12 @@ public class PlayerHealth : MonoBehaviour
         hasDiedInWater = false;
         hasDiedOnSpikes = false;
         hasDiedByEnemy = false;
+        isInCave = false;
     }
 
     private void Awake()
     {
         m_Anim = GetComponent<Animator>();
-        m_Character = GetComponent<PlatformerCharacter2D>();
     }
 
     // Update is called once per frame
@@ -41,7 +42,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void CheckForDeath()
     {
-        if (hasDiedInWater ||  
+        if (hasDiedInWater ||
             hasDiedOnSpikes ||
             hasDiedByEnemy)
         {
@@ -60,7 +61,7 @@ public class PlayerHealth : MonoBehaviour
             }
 
             if (!timerReached && timer > 1 && !playedFailSound)
-            {                
+            {
                 BroadcastMessage("PlayFailTone");
                 playedFailSound = true;
             }
@@ -118,6 +119,24 @@ public class PlayerHealth : MonoBehaviour
             {
                 BroadcastMessage("PlayKilledByEnemySound");
                 playedDeathSound = true;
+            }
+        }
+
+        if (collision.gameObject.tag == "Cave")
+        {
+            if (!isInCave)
+            {
+                BroadcastMessage("PlayHorrorWhispersSound");
+                isInCave = true;
+            }
+        }
+
+        if (collision.gameObject.tag == "Ground")
+        {
+            if (isInCave)
+            {
+                BroadcastMessage("StopHorrorWhispersSound");
+                isInCave = false;
             }
         }
     }
