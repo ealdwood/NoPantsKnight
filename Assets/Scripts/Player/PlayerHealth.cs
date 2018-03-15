@@ -26,7 +26,7 @@ public class PlayerHealth : MonoBehaviour {
 
     IEnumerator Die()
     {
-        SceneManager.LoadScene("Desert");
+        SceneManager.LoadScene("Forest");
         yield return null;
     }
 }

@@ -1494,6 +1494,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpSound: {fileID: 8300000, guid: 39219ba2ddac38d409cf1d0ea55a6a17, type: 3}
+  attackNoHitSound: {fileID: 8300000, guid: 8223d57b1900f4f4d9748453401bd290, type: 3}
+  attackHitSound: {fileID: 8300000, guid: 8223d57b1900f4f4d9748453401bd290, type: 3}
   volume: 1
 --- !u!82 &824249119
 AudioSource:
