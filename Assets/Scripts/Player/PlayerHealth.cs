@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityStandardAssets._2D;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public bool hasDiedInWater;
     public bool hasDiedOnSpikes;
     public bool hasDiedByEnemy;
+    public GameObject DeathScreenUI;
 
     private Animator m_Anim;
 
@@ -26,6 +28,7 @@ public class PlayerHealth : MonoBehaviour
         hasDiedOnSpikes = false;
         hasDiedByEnemy = false;
         isInCave = false;
+        DeathScreenUI.gameObject.SetActive(false);
     }
 
     private void Awake()
@@ -146,7 +149,9 @@ public class PlayerHealth : MonoBehaviour
         m_Anim.SetBool("isDying", false);
         m_Anim.SetBool("isDead", false);
 
-        SceneManager.LoadScene("Forest");
+        DeathScreenUI.gameObject.SetActive(true);
+
+        //SceneManager.LoadScene("Forest");
 
         yield return null;
     }
