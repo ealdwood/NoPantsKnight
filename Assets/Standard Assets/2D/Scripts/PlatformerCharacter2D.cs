@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 namespace UnityStandardAssets._2D
 {
@@ -98,6 +99,11 @@ namespace UnityStandardAssets._2D
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 
                 BroadcastMessage("PlayJumpSound");
+            }
+
+            if (!m_Grounded && CrossPlatformInputManager.GetButtonUp("Jump"))
+            {
+                m_Rigidbody2D.AddForce(new Vector2(0f, -(m_JumpForce / 3)));
             }
         }
 
