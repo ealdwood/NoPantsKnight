@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour {
     float timer = 0;
     bool timerReached = false;
     bool playedDeathSound = false;
+    bool playedFailSound = false;
 
     // Use this for initialization
     void Start () {
@@ -48,22 +49,28 @@ public class PlayerHealth : MonoBehaviour {
             if (!timerReached)
                 timer += Time.deltaTime;
 
-            if (!timerReached && timer > 2)
+            if (!timerReached && timer > 1 && !playedFailSound)
+            {
+                BroadcastMessage("PlayFailTone");
+                playedFailSound = true;
+            }
+
+            if (!timerReached && timer > 5)
             {
                 StartCoroutine("Die");
 
                 //Set to false so that We don't run this again
                 timerReached = true;
                 playedDeathSound = false;
-            }
-
-            
+                playedFailSound = false;
+            }                      
         }
 	}
 
     IEnumerator Die()
     {
         SceneManager.LoadScene("Forest");
+
         yield return null;
     }
 }
