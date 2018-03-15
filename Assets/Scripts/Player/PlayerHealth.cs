@@ -8,18 +8,28 @@ public class PlayerHealth : MonoBehaviour
     public int health;
     public bool hasDiedInWater;
     public bool hasDiedOnSpikes;
+    public bool hasDiedByEnemy;
+
+    private Animator m_Anim;
 
     float timer = 0;
     bool timerReached = false;
     bool playedDeathSound = false;
     bool playedFailSound = false;
+    PlatformerCharacter2D m_Character;
 
     // Use this for initialization
     void Start()
     {
         hasDiedInWater = false;
         hasDiedOnSpikes = false;
+        hasDiedByEnemy = false;
+    }
 
+    private void Awake()
+    {
+        m_Anim = GetComponent<Animator>();
+        m_Character = GetComponent<PlatformerCharacter2D>();
     }
 
     // Update is called once per frame
@@ -35,6 +45,8 @@ public class PlayerHealth : MonoBehaviour
         {
             if (!timerReached)
                 timer += Time.deltaTime;
+
+            m_Anim.SetBool("isDead", true);             
 
             if (!timerReached && timer > 1 && !playedFailSound)
             {
@@ -93,10 +105,23 @@ public class PlayerHealth : MonoBehaviour
                 playedDeathSound = true;
             }
         }
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+            hasDiedInWater = true;
+
+            if (!playedDeathSound)
+            {
+                BroadcastMessage("PlayKilledByEnemySound");
+                playedDeathSound = true;
+            }
+        }
     }
 
     IEnumerator Die()
     {
+        m_Anim.SetBool("isDead", false);        
+
         SceneManager.LoadScene("Forest");
 
         yield return null;
