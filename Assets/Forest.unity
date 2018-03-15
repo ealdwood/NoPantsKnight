@@ -5598,7 +5598,7 @@ MonoBehaviour:
   spikeSplatSound: {fileID: 8300000, guid: 7a1957f68fcd0864d958e3caadfbe60d, type: 3}
   killedByEnemySound: {fileID: 8300000, guid: c84d4f0ff0604c543bd3467b524246ff, type: 3}
   failSound: {fileID: 8300000, guid: 3f7761e69ccabb9409dcf612f9913c51, type: 3}
-  horrorWhispersSound: {fileID: 0}
+  horrorWhispersSound: {fileID: 8300000, guid: 9f704a51846038e4aba85d3320bc278e, type: 3}
   isInCave: 0
   volume: 1
 --- !u!82 &824249119
