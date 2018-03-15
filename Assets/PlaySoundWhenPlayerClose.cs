@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlaySoundWhenPlayerClose : MonoBehaviour {
 
-    public float distanceToPlayer;
-    public bool hasApproached;
+    private float distanceToPlayer;
+    private bool hasApproached;
     public AudioClip sound;
+    public float distanceIsClose;
 
     private AudioSource source;
     
@@ -22,7 +23,7 @@ public class PlaySoundWhenPlayerClose : MonoBehaviour {
 
         distanceToPlayer = Vector2.Distance(player.transform.position, gameObject.transform.position);
 
-        if (distanceToPlayer < 5)
+        if (distanceToPlayer < distanceIsClose)
         {
             if (!hasApproached)
             {

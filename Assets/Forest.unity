@@ -7181,7 +7181,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distanceToPlayer: 0
   hasApproached: 0
-  source: {fileID: 0}
+  sound: {fileID: 8300000, guid: aca38cdbfbd549d46b4df103aebe9be7, type: 3}
+  distanceIsClose: 5
 --- !u!82 &975215239
 AudioSource:
   m_ObjectHideFlags: 0
