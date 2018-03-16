@@ -36,7 +36,6 @@ namespace UnityStandardAssets._2D
                 m_Attack = false;
             }
             
-
             if (CrossPlatformInputManager.GetButtonDown("Cancel"))
             {
                 SceneManager.LoadScene("Forest");
