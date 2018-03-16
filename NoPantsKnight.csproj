@@ -253,9 +253,6 @@
     <Reference Include="UnityEditor.Graphs">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.WebGL.Extensions">
-      <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
       <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
@@ -294,6 +291,7 @@
     <Compile Include="Assets\EnemyMove.cs" />
     <Compile Include="Assets\PlaySoundWhenPlayerClose.cs" />
     <Compile Include="Assets\Scripts\DeathMenu.cs" />
+    <Compile Include="Assets\Scripts\EndMenu.cs" />
     <Compile Include="Assets\Scripts\Game\Parallaxing.cs" />
     <Compile Include="Assets\Scripts\Game\TextBoxManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAudio.cs" />
