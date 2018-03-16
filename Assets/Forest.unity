@@ -7052,6 +7052,8 @@ MonoBehaviour:
   failSound: {fileID: 8300000, guid: 3f7761e69ccabb9409dcf612f9913c51, type: 3}
   horrorWhispersSound: {fileID: 8300000, guid: 9f704a51846038e4aba85d3320bc278e, type: 3}
   killedEnemySound: {fileID: 8300000, guid: 47670917df777c34b9bb6dd2cbc38dfd, type: 3}
+  collectEggSound: {fileID: 8300000, guid: ac9330865e04a1a4ca5ee31742bb498f, type: 3}
+  collectPantsSound: {fileID: 8300000, guid: 558b1b4c1f580f740a0abe03373122df, type: 3}
   isInCave: 0
   volume: 1
 --- !u!82 &824249119
@@ -8187,7 +8189,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 178
+  m_RootOrder: 179
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &969683513
 GameObject:
@@ -16987,7 +16989,7 @@ Transform:
   m_Children:
   - {fileID: 1052895869}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1834803558
 MonoBehaviour:
@@ -17016,7 +17018,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d20e873b52ce59a49b041ed63f923d95, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.025
+  m_Volume: 0.075
   m_Pitch: 1
   Loop: 1
   Mute: 0
