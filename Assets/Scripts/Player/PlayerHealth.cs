@@ -19,11 +19,15 @@ public class PlayerHealth : MonoBehaviour
     bool playedDeathSound = false;
     bool playedFailSound = false;
 
+    //private TextBoxManager textBoxManager;
+
     bool isInCave;
 
     // Use this for initialization
     void Start()
     {
+        //textBoxManager = FindObjectOfType<TextBoxManager>();
+
         hasDiedInWater = false;
         hasDiedOnSpikes = false;
         hasDiedByEnemy = false;
@@ -50,7 +54,7 @@ public class PlayerHealth : MonoBehaviour
             hasDiedByEnemy)
         {
             if (!timerReached)
-                timer += Time.deltaTime;
+                timer += Time.deltaTime;            
 
             if (!m_Anim.GetBool("isDead"))
             {
@@ -71,6 +75,7 @@ public class PlayerHealth : MonoBehaviour
 
             if (!timerReached && timer > 5)
             {
+                //textBoxManager.HideDeathDialog();
                 StartCoroutine("Die");
 
                 //Set to false so that We don't run this again
@@ -85,6 +90,10 @@ public class PlayerHealth : MonoBehaviour
     {
         if (gameObject.transform.position.y < -30)
         {
+            if (!hasDiedInWater)
+            {
+                //textBoxManager.ShowDeathDialog();
+            }
             hasDiedInWater = true;
         }
     }
@@ -93,6 +102,10 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.gameObject.tag == "Water")
         {
+            //if (!hasDiedInWater)
+            //{
+            //    textBoxManager.ShowDeathDialog();
+            //}
             hasDiedInWater = true;
 
             if (!playedDeathSound)
@@ -105,7 +118,11 @@ public class PlayerHealth : MonoBehaviour
 
         if (collision.gameObject.tag == "Spikes")
         {
-            hasDiedInWater = true;
+            //if (!hasDiedOnSpikes)
+            //{
+            //    textBoxManager.ShowDeathDialog();
+            //}
+            hasDiedOnSpikes = true;
 
             if (!playedDeathSound)
             {
