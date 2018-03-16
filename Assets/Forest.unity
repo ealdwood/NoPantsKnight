@@ -6979,6 +6979,7 @@ MonoBehaviour:
   killedByEnemySound: {fileID: 8300000, guid: c84d4f0ff0604c543bd3467b524246ff, type: 3}
   failSound: {fileID: 8300000, guid: 3f7761e69ccabb9409dcf612f9913c51, type: 3}
   horrorWhispersSound: {fileID: 8300000, guid: 9f704a51846038e4aba85d3320bc278e, type: 3}
+  killedEnemySound: {fileID: 8300000, guid: 47670917df777c34b9bb6dd2cbc38dfd, type: 3}
   isInCave: 0
   volume: 1
 --- !u!82 &824249119
