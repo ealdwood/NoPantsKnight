@@ -48,11 +48,15 @@ public class PlayerScore : MonoBehaviour
         }
         if (collider.gameObject.tag == "Egg")
         {
+            BroadcastMessage("PlayCollectEggSound");
+
             playerScore += 100;
             Destroy(collider.gameObject);
         }
         if (collider.gameObject.tag == "Pants")
         {
+            BroadcastMessage("PlayCollectPantsSound");
+
             playerScore += 500;
             Destroy(collider.gameObject);
         }
