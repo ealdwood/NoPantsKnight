@@ -21,6 +21,9 @@ namespace UnityStandardAssets._2D
         private Rigidbody2D m_Rigidbody2D;
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
+        private float timer = 0;
+        private bool attackTimeElapsed = false;
+
         private void Awake()
         {
             // Setting up references.
@@ -33,6 +36,14 @@ namespace UnityStandardAssets._2D
 
         private void FixedUpdate()
         {
+            if (m_Anim.GetBool("isAttacking") && !attackTimeElapsed)
+                timer += Time.deltaTime;
+
+            if (!attackTimeElapsed && timer > 0.1)
+            {
+                attackTimeElapsed = true;
+            }
+
             m_Grounded = false;
 
             // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
@@ -49,6 +60,26 @@ namespace UnityStandardAssets._2D
             m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
         }
 
+        public void Attack(bool attack)
+        {
+            //if (m_Anim.GetBool("isAttacking") && !attackTimeElapsed)
+            //{
+            //    attack = true;
+            //}
+            //else if (m_Anim.GetBool("isAttacking") && attackTimeElapsed)
+            //{
+            //    attack = false;
+            //    attackTimeElapsed = false;
+            //    timer = 0;
+            //    m_Anim.SetBool("isAttacking", false);
+
+            //}
+            //else
+            //{
+                m_Anim.SetBool("isAttacking", attack);
+            //}
+            
+        }
 
         public void Move(float move, bool crouch, bool jump)
         {
