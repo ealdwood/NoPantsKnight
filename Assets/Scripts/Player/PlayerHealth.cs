@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityStandardAssets._2D;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public bool hasDiedInWater;
     public bool hasDiedOnSpikes;
     public bool hasDiedByEnemy;
+    public GameObject DeathScreenUI;
 
     private Animator m_Anim;
 
@@ -17,19 +19,20 @@ public class PlayerHealth : MonoBehaviour
     bool playedDeathSound = false;
     bool playedFailSound = false;
 
-    private TextBoxManager textBoxManager;
+    //private TextBoxManager textBoxManager;
 
     bool isInCave;
 
     // Use this for initialization
     void Start()
     {
-        textBoxManager = FindObjectOfType<TextBoxManager>();
+        //textBoxManager = FindObjectOfType<TextBoxManager>();
 
         hasDiedInWater = false;
         hasDiedOnSpikes = false;
         hasDiedByEnemy = false;
         isInCave = false;
+        DeathScreenUI.gameObject.SetActive(false);
     }
 
     private void Awake()
@@ -72,7 +75,7 @@ public class PlayerHealth : MonoBehaviour
 
             if (!timerReached && timer > 5)
             {
-                textBoxManager.HideDeathDialog();
+                //textBoxManager.HideDeathDialog();
                 StartCoroutine("Die");
 
                 //Set to false so that We don't run this again
@@ -89,7 +92,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (!hasDiedInWater)
             {
-                textBoxManager.ShowDeathDialog();
+            //    textBoxManager.ShowDeathDialog();
             }
             hasDiedInWater = true;
         }
@@ -101,7 +104,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (!hasDiedInWater)
             {
-                textBoxManager.ShowDeathDialog();
+            //    textBoxManager.ShowDeathDialog();
             }
             hasDiedInWater = true;
 
@@ -117,7 +120,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (!hasDiedOnSpikes)
             {
-                textBoxManager.ShowDeathDialog();
+            //    textBoxManager.ShowDeathDialog();
             }
             hasDiedOnSpikes = true;
 
@@ -132,7 +135,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (!hasDiedByEnemy)
             {
-                textBoxManager.ShowDeathDialog();
+             //   textBoxManager.ShowDeathDialog();
             }
             hasDiedByEnemy = true;
 
@@ -167,7 +170,9 @@ public class PlayerHealth : MonoBehaviour
         m_Anim.SetBool("isDying", false);
         m_Anim.SetBool("isDead", false);
 
-        SceneManager.LoadScene("Forest");
+        DeathScreenUI.gameObject.SetActive(true);
+
+        //SceneManager.LoadScene("Forest");
 
         yield return null;
     }

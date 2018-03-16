@@ -12,6 +12,7 @@ public class TextBoxManager : MonoBehaviour {
     public void Start()
     {
         canvas = Resources.FindObjectsOfTypeAll<Canvas>().First();
+        //Debug.Log(canvas.name);
     }
     
     private void ReadDialogTextFromFile()
@@ -23,7 +24,13 @@ public class TextBoxManager : MonoBehaviour {
             "Do they have a cover option for this?!?",
             "I'm glad I went with MLC for Life Insurance",
             "Does MLC cover attacks from blue slime?", 
-            "Underwriting didn't ask if I fight undead skeletons!"
+            "Underwriting didn't ask if I fight undead skeletons!",
+			"I'm a celebrity, get me out of here!",
+			"I'm glad I wore clean underwear today",
+			"I just couldn't Hack-ett :)",
+			"I guess TPD doesn't cover this?",
+			"Is this excluded from my TPD cover",
+			"You've won this round Terribly Angry Lizard"
         };
     }
 
@@ -33,6 +40,7 @@ public class TextBoxManager : MonoBehaviour {
 
         dialogText = canvas.GetComponentInChildren<Text>();
         dialogText.text = list[currentLine];
+        //Debug.Log(dialogText.text);
     }
 
     public void HideDeathDialog()
@@ -42,6 +50,7 @@ public class TextBoxManager : MonoBehaviour {
 
     public void ShowDeathDialog()
     {
+        //Debug.Log("Made it to show death dialog");
         ReadDialogTextFromFile();
         GetDialogText();
         ToggleCanvase(true);
@@ -50,5 +59,6 @@ public class TextBoxManager : MonoBehaviour {
     private void ToggleCanvase(bool isVisible)
     {
         canvas.gameObject.SetActive(isVisible);
+        //Debug.Log("Canvas toggled");
     }
 }
