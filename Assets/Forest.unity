@@ -10211,6 +10211,8 @@ GameObject:
   - component: {fileID: 1167596102}
   - component: {fileID: 1167596103}
   - component: {fileID: 1167596105}
+  - component: {fileID: 1167596107}
+  - component: {fileID: 1167596106}
   - component: {fileID: 1167596101}
   - component: {fileID: 1167596100}
   - component: {fileID: 1167596099}
@@ -10397,6 +10399,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 975215231}
+  attackDistance: 1
+--- !u!114 &1167596106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1167596095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99808a72b435d6244b61b08aca8f4a2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 485122380}
+  attackDistance: 1
+--- !u!114 &1167596107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1167596095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99808a72b435d6244b61b08aca8f4a2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 776315250}
   attackDistance: 1
 --- !u!1 &1181371095
 GameObject:

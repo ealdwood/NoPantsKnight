@@ -9,6 +9,7 @@ public class PlayerAudio : MonoBehaviour
     public AudioClip killedByEnemySound;
     public AudioClip failSound;
     public AudioClip horrorWhispersSound;
+    public AudioClip killedEnemySound;
 
     public bool isInCave;
 
@@ -59,5 +60,10 @@ public class PlayerAudio : MonoBehaviour
     void PlayFailTone()
     {
         source.PlayOneShot(failSound, volume);
+    }
+
+    void PlayKilledEnemySound()
+    {
+        source.PlayOneShot(killedEnemySound, volume);
     }
 }

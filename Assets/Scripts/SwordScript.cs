@@ -35,7 +35,7 @@ public class SwordScript : MonoBehaviour {
 
         if (distance < attackDistance && facingEnemy)
         {
-            BroadcastMessage("PlayKilledEnemysSound");
+            BroadcastMessage("PlayKilledEnemySound");
             Destroy(target, 0.1F);
         }          
     }
