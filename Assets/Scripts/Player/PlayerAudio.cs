@@ -10,6 +10,8 @@ public class PlayerAudio : MonoBehaviour
     public AudioClip failSound;
     public AudioClip horrorWhispersSound;
     public AudioClip killedEnemySound;
+    public AudioClip collectEggSound;
+    public AudioClip collectPantsSound;
 
     public bool isInCave;
 
@@ -65,5 +67,15 @@ public class PlayerAudio : MonoBehaviour
     void PlayKilledEnemySound()
     {
         source.PlayOneShot(killedEnemySound, volume);
+    }
+
+    void PlayCollectEggSound()
+    {
+        source.PlayOneShot(collectEggSound, volume);
+    }
+
+    void PlayCollectPantsSound()
+    {
+        source.PlayOneShot(collectPantsSound, volume);
     }
 }
