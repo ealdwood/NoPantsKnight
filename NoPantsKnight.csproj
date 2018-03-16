@@ -291,6 +291,7 @@
     <Compile Include="Assets\EnemyMove.cs" />
     <Compile Include="Assets\PlaySoundWhenPlayerClose.cs" />
     <Compile Include="Assets\Scripts\DeathMenu.cs" />
+    <Compile Include="Assets\Scripts\EndMenu.cs" />
     <Compile Include="Assets\Scripts\Game\Parallaxing.cs" />
     <Compile Include="Assets\Scripts\Game\TextBoxManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAudio.cs" />

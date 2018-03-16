@@ -11,6 +11,13 @@ public class PlayerScore : MonoBehaviour
     public GameObject timeLeftUI;
     public GameObject scoreUI;
     public GameObject deathScoreUI;
+    public GameObject endScreenUI;
+    public GameObject endScoreUI;
+
+    void Start()
+    {
+        endScreenUI.gameObject.SetActive(false);
+    }
 
     // Update is called once per frame
     void Update()
@@ -20,6 +27,8 @@ public class PlayerScore : MonoBehaviour
         timeLeftUI.gameObject.GetComponent<Text>().text = ("Time Left: " + (int)timeLeft);
         scoreUI.gameObject.GetComponent<Text>().text = ("Score: " + playerScore);
         deathScoreUI.gameObject.GetComponent<Text>().text = ("Your score was: " + playerScore);
+        endScoreUI.gameObject.GetComponent<Text>().text = ("Your score was: " + playerScore);
+        
 
         //Debug.Log(timeLeft);
         if (timeLeft < 0.1f)
@@ -33,6 +42,9 @@ public class PlayerScore : MonoBehaviour
         if (collider.gameObject.tag == "End")
         {
             CountScore();
+            endScoreUI.gameObject.GetComponent<Text>().text = ("Your score was: " + playerScore);
+            endScreenUI.gameObject.SetActive(true);
+            Destroy(collider.gameObject);
         }
         if (collider.gameObject.tag == "Egg")
         {
