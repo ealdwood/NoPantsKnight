@@ -11,7 +11,7 @@ public class TextBoxManager : MonoBehaviour {
 
     public void Start()
     {
-        canvas = Resources.FindObjectsOfTypeAll<Canvas>().First();
+        canvas = Resources.FindObjectsOfTypeAll<Canvas>().First(x => x.name == "CanvasChris");
         //Debug.Log(canvas.name);
     }
     
