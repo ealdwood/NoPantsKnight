@@ -19,14 +19,14 @@ public class PlayerHealth : MonoBehaviour
     bool playedDeathSound = false;
     bool playedFailSound = false;
 
-    //private TextBoxManager textBoxManager;
+    private TextBoxManager textBoxManager;
 
     bool isInCave;
 
     // Use this for initialization
     void Start()
     {
-        //textBoxManager = FindObjectOfType<TextBoxManager>();
+        textBoxManager = FindObjectOfType<TextBoxManager>();
 
         hasDiedInWater = false;
         hasDiedOnSpikes = false;
@@ -75,7 +75,7 @@ public class PlayerHealth : MonoBehaviour
 
             if (!timerReached && timer > 5)
             {
-                //textBoxManager.HideDeathDialog();
+                textBoxManager.HideDeathDialog();
                 StartCoroutine("Die");
 
                 //Set to false so that We don't run this again
@@ -92,7 +92,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (!hasDiedInWater)
             {
-            //    textBoxManager.ShowDeathDialog();
+                textBoxManager.ShowDeathDialog();
             }
             hasDiedInWater = true;
         }
@@ -104,7 +104,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (!hasDiedInWater)
             {
-            //    textBoxManager.ShowDeathDialog();
+                textBoxManager.ShowDeathDialog();
             }
             hasDiedInWater = true;
 
@@ -120,7 +120,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (!hasDiedOnSpikes)
             {
-            //    textBoxManager.ShowDeathDialog();
+                textBoxManager.ShowDeathDialog();
             }
             hasDiedOnSpikes = true;
 
@@ -135,7 +135,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (!hasDiedByEnemy)
             {
-             //   textBoxManager.ShowDeathDialog();
+                textBoxManager.ShowDeathDialog();
             }
             hasDiedByEnemy = true;
 
