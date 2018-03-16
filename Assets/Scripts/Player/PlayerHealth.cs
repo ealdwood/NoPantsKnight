@@ -92,7 +92,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (!hasDiedInWater)
             {
-                //textBoxManager.ShowDeathDialog();
+            //    textBoxManager.ShowDeathDialog();
             }
             hasDiedInWater = true;
         }
@@ -102,10 +102,10 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.gameObject.tag == "Water")
         {
-            //if (!hasDiedInWater)
-            //{
+            if (!hasDiedInWater)
+            {
             //    textBoxManager.ShowDeathDialog();
-            //}
+            }
             hasDiedInWater = true;
 
             if (!playedDeathSound)
@@ -118,10 +118,10 @@ public class PlayerHealth : MonoBehaviour
 
         if (collision.gameObject.tag == "Spikes")
         {
-            //if (!hasDiedOnSpikes)
-            //{
+            if (!hasDiedOnSpikes)
+            {
             //    textBoxManager.ShowDeathDialog();
-            //}
+            }
             hasDiedOnSpikes = true;
 
             if (!playedDeathSound)
@@ -133,6 +133,10 @@ public class PlayerHealth : MonoBehaviour
 
         if (collision.gameObject.tag == "Enemy")
         {
+            if (!hasDiedByEnemy)
+            {
+             //   textBoxManager.ShowDeathDialog();
+            }
             hasDiedByEnemy = true;
 
             if (!playedDeathSound)
